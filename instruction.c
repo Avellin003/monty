@@ -7,20 +7,14 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	char *arg = strtok(NULL, " \t\n");
 	int n;
 
-	if (arg == NULL)
+	if (scanf("%d", &n) != 1)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(arg);
-	if (n == 0 && arg[0] != '0')
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+
 	stack_push(stack, n);
 }
 /**
